@@ -5,6 +5,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { RouterModule } from '@angular/router';
 import { LayoutRoutingModule } from './layout.routing.module';
 import { LayoutComponent } from './layout.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -13,9 +14,9 @@ import { LayoutComponent } from './layout.component';
     HomeComponent,
     LayoutComponent,
   ],
-  imports: [RouterModule, LayoutRoutingModule],
+  imports: [RouterModule, LayoutRoutingModule, CommonModule],
   providers: [],
-  exports: [LayoutComponent],
+  exports: [LayoutComponent, HomeComponent],
   bootstrap: [],
 })
 export class LayoutModule {}

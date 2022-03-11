@@ -1,1 +1,95 @@
-<p>login works!</p>
+<section class="page">
+  <div class="max-w-7xl mx-auto">
+    <div class="md:w-1/2 mx-auto">
+      <div class="text-center mt-10">
+        <h2 class="text-3xl font-medium mb-4 text-green-500">Login</h2>
+        <a routerLink="['login']"
+          >Don't have account?
+          <span class="text-green-500 underline font-semibold"
+            >Register</span
+          ></a
+        >
+        <div class="dd">
+          <a routerLink="" class="text-green-500 underline font-semibold"
+            >Back To Home</a
+          >
+        </div>
+        <form
+          class="text-left p-4"
+          [formGroup]="loginForm"
+          (ngSubmit)="login()"
+        >
+          <div class="mb-4">
+            <label
+              for="username"
+              class="block mb-2 text-sm font-medium text-gray-900"
+              >User Name</label
+            >
+            <input
+              type="text"
+              id="username"
+              formControlName="username"
+              class="bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none text-sm rounded focus:ring-green-500 focus:ring-1 block w-full px-3 py-2"
+              placeholder="user name"
+            />
+            <div
+              *ngIf="
+                loginForm.invalid &&
+                usernameControl?.touched &&
+                usernameControl.errors
+              "
+              class="text-red-500"
+            >
+              <span *ngIf="usernameControl.errors?.['required']"
+                >Username is required</span
+              >
+              <span *ngIf="usernameControl.errors?.['minLength']"
+                >Username must be 5 cherectar</span
+              >
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label
+              for="password"
+              class="block mb-2 text-sm font-medium text-gray-900"
+              >Password</label
+            >
+            <input
+              type="password"
+              id="password"
+              formControlName="password"
+              class="bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none text-sm rounded focus:ring-green-500 focus:ring-1 block w-full px-3 py-2"
+              placeholder="password"
+              autocomplete="off"
+            />
+            <div
+              *ngIf="
+                loginForm.invalid &&
+                passwordControl.touched &&
+                passwordControl.errors
+              "
+              class="text-red-500"
+            >
+              <span *ngIf="passwordControl.errors?.['minlength']"
+                >Password must have at least 5 characters</span
+              >
+            </div>
+          </div>
+          <button
+            [disabled]="!loginForm.valid"
+            type="submit"
+            class="text-white bg-green-500 hover:bg-green-700 focus:ring-1 font-medium rounded text-sm w-full sm:w-auto px-5 py-2 transition-all ml-auto"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- [ngClass]="
+  !regForm.valid ? 'opacity-50 cursor-not-allowed' : 'opacity-100'
+  " -->
+<!-- [disabled]="isSubmitting$ | async" -->
+<!-- [disabled]="!regForm.valid" -->

@@ -6,11 +6,12 @@ import { HomeComponent } from './pages/home/home.component';
 const routes: Routes = [
   {
     path: '',
+    // loadChildren: () => import('./layout.module').then((m) => m.LayoutModule),
     component: LayoutComponent,
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
 })
 export class LayoutRoutingModule {}
